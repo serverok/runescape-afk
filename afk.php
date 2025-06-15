@@ -16,13 +16,13 @@ if (isset($argv[1])) {
     $timeAfkCustom = $argv[1];
     if ($timeAfkCustom == 'a') {
         $screenShot = true;
-        $tplImage = "/www/my-pc/afk/tpl/arch.png";
+        $tplImage = __DIR__ . "/tpl/arch.png";
         $tplResult = "True";
         $afkPlugin = "Arch";
         $afkPluginSleep = 30;
     } elseif ($timeAfkCustom == 'cb') {
         $screenShot = true;
-        $tplImage = "/www/my-pc/afk/tpl/not-attacking.png";
+        $tplImage = __DIR__ . "/tpl/not-attacking.png";
         $tplResult = "True";
         $afkPlugin = "Combat";
         $afkPluginSleep = 10;
@@ -79,7 +79,7 @@ while(1) {
         if (preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $line)) {
             $alarmDateTime = strtotime($line);
             if ($currentDateTime > $alarmDateTime) {
-                exec("/usr/bin/ffplay -nodisp -autoexit /www/my-pc/afk/time-up.wav 2>/dev/null");
+                exec("/usr/bin/ffplay -nodisp -autoexit " . __DIR__ . "/time-up.wav 2>/dev/null");
                 $updateAlarmFile = true;
                 unset($lines[$index]);
             }
@@ -102,7 +102,7 @@ while(1) {
             exec($cmd);
             if (file_exists('/dev/shm/rs3.png')) {
                 // /www/my-pc/afk/template_match.py /www/my-pc/afk/tpl/arch.png /dev/shm/rs3.png
-                $cmd = "/www/my-pc/afk/template_match.py " . $tplImage . " /dev/shm/rs3.png";
+                $cmd = __DIR__ . "/template_match.py " . $tplImage . " /dev/shm/rs3.png";
                 $result = exec($cmd);
                 if ($result == 'True') {
                     if ((time() - $timeNotInAction) > 120) {

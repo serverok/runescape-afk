@@ -21,7 +21,7 @@ class Alarm {
             $this->cancel();
             echo "Time up\n";
             #exec("/usr/bin/spd-say up");
-            exec("/usr/bin/ffplay -nodisp -autoexit /www/my-pc/afk/time-up.wav 2>/dev/null");
+            exec("/usr/bin/ffplay -nodisp -autoexit " . __DIR__ . "/time-up.wav 2>/dev/null");
             if (file_exists($this->afkRepeatFile)) {
                 $repeatAfter = file_get_contents($this->afkRepeatFile);
                 echo "Reapat after = $repeatAfter\n";
