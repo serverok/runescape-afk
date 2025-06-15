@@ -8,6 +8,16 @@ Script bring runescape window to foreground every X minutes. Useful when you nee
 apt install x11-utils xdotool imagemagick ffmpeg wmctrl
 ```
 
+## Alias
+
+```
+alias afk='php /data/sites/projects/afk/afk.php'
+alias afk-cb='php /data/sites/projects/afk/afk-combat.php'
+alias qq='php /data/sites/projects/afk/afktime.php'
+alias rs='/data/sites/projects/afk/rs'
+```
+
+
 ## Commands used
 
 /usr/bin/xwininfo
