@@ -2,7 +2,7 @@
 
 Script bring runescape window to foreground every X minutes. Useful when you need to afk. Script is made for Ubuntu with X11, won't work with Wayland.
 
-## Re1quirments
+## Requirments
 
 ```
 apt install x11-utils xdotool imagemagick ffmpeg wmctrl
@@ -45,11 +45,9 @@ pip install opencv-python
 
 cp /dev/shm/rs3.png ~/
 
-[1:59:13 PM] RuneScape WindowID = 8388622
+## Screenshot background window
 
 /usr/bin/xwd -silent -id 8388622 -out /home/boby/rs3.xwd
-
-
 
 scrot -w 8388622 /home/boby/rs3.png
 
